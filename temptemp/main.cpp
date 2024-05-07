@@ -64,8 +64,7 @@ template<typename T>
 T Vecleng(T _x, T _y)
 {
 	T a = pow(_x, 2) + pow(_y, 2);
-	T res = sprt(a);
-	return res;
+	return a;
 }
 
 int main() {
