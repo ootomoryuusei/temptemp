@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cmath>
 
 using std::cout;
 using std::endl;
@@ -60,9 +61,10 @@ public:
 
 
 template<typename T>
-T Veclang(T _x, T _y)
+T Vecleng(T _x, T _y)
 {
-	T res = sprt(pow(_x) + pow(_y));
+	T a = pow(_x, 2) + pow(_y, 2);
+	T res = sprt(a);
 	return res;
 }
 
@@ -89,5 +91,10 @@ int main() {
 	//v.x = 2.3;
 	//v.y = 3.5;
 	//v.PrintVec();
+
+	int vl1 = Vecleng<int>(3, 4);
+	int vl2 = Vecleng<int>(5, 12);
+	int res = tMax<int>(vl1, vl2);
+	cout << "tMax" << vl1 << " : " << vl2 << " : " << res << endl;
 	return 0;
 }
