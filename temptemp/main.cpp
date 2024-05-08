@@ -54,19 +54,14 @@ public:
 	T GetX() { return x; }
 	void SetX(T _x) { x = _x; }
 	void PrintVec() { cout << "(x, y) =" << "(" << x << "," << y << ")" << endl;}
+	T Length() const { return ((T)sqrt(x * x + y * y)); }
+	bool operator >(const Vec2<T>& other) {
+		return(this->Length() > other.Length());
+	}
 };
 //ベクトルの長さをT型で返すメンバ関数を作る
 //ベクトルの長さで比較する>演算子をオーバーロード
 //ベクトルの長さを比べて長い方を表示して本当にあっているか確認(tMaxに入れる)
-
-
-template<typename T>
-T Vecleng(T _x, T _y)
-{
-	T a = pow(_x, 2) + pow(_y, 2);
-	T res = sqrt(a);
-	return res;
-}
 
 int main() {
 	//int var1 = 10;
@@ -87,14 +82,22 @@ int main() {
 	//double res3 = tMax<double>(var5, var6);
 	//cout << "myMax" << var5 << ":" << var6 <<":" << res3 << endl;
 
-	//Vec2<float> v;
-	//v.x = 2.3;
-	//v.y = 3.5;
+	Vec2<int> v1;
+	v1.x = 4;
+	v1.y = 1;
+
+	Vec2<int> v2;
+	v2.x = 5;
+	v2.y = 1;
+	Vec2<int> res = tMax(v1, v2);
+	res.PrintVec();
+	/*if (v1 > v2) {
+		v1.PrintVec();
+	}
+	else {
+		v2.PrintVec();
+	}*/
 	//v.PrintVec();
 
-	int vl1 = Vecleng<int>(3, 4);
-	int vl2 = Vecleng<int>(5, 12);
-	int res = tMax<int>(vl1, vl2);
-	cout << "tMax" << vl1 << " : " << vl2 << " : " << res << endl;
 	return 0;
 }
